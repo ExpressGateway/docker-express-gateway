@@ -2,7 +2,9 @@ const ejs = require('ejs');
 const fs = require('fs');
 const git = require('isomorphic-git');
 
-ejs.renderFile('./Dockerfile_template', { egVersion: "1.10.3" }, {}, (err, str) => {
+const egVersion = process.env.CIRCLE_TAG.substr(1); // GitHub Tags is vx.y.z — we need just x.y.z
+
+ejs.renderFile('./Dockerfile_template', { egVersion }, {}, (err, str) => {
   if (err)
     return console.error(err);
 
