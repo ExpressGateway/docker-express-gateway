@@ -1,0 +1,23 @@
+{
+  "name": "docker-express-gateway",
+  "version": "1.0.0",
+  "description": "Docker Official Image Automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ExpressGateway/docker-express-gateway.git"
+  },
+  "author": "Vincenzo Chianese <vincenz.chianese@icloud.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ExpressGateway/docker-express-gateway/issues"
+  },
+  "homepage": "https://github.com/ExpressGateway/docker-express-gateway#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "isomorphic-git": "^0.24.4"
+  }
+}
