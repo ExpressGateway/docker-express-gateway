@@ -20,9 +20,7 @@ git.branch({ ...repo, ref: `feat/update_${egVersion}` })
       return git.add({ ...repo, filepath: 'alpine/Dockerfile' }).then(resolve).catch(reject);
     })
   }))
-  .then(() => {
-    return git.commit({ ...repo, message: 'Update', author: { name, email } })
-  })
+  .then(() => git.commit({ ...repo, message: 'Update', author: { name, email } }))
   .then(sha => Promise.all([sha, git.push({ ...repo, remote: 'origin', ref: `feat/update_${egVersion}`, token, force: true })]))
   .then(console.log)
   .catch(console.error)
