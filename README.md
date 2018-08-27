@@ -23,7 +23,7 @@ This starts a container and bind ports 88 on your host to port 8080 in the conta
 
 ### Persist configuration changes across container starts
 
-In the container, the gateway configurations files are stored in /var/lib/eg/ .  If you make changes to these they will be lost when the container is removed or restarted.  To keep you configuration changes across container restarts, you must save them outside of the container. 
+In the container, the gateway configuration files are stored in /var/lib/eg/ .  If you make changes to these they will be lost when the container is removed or restarted.  To keep you configuration changes across container restarts, you must save them outside of the container. 
 
 #### Using plain docker containers (e.g. not docker services)
 
