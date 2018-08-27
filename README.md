@@ -5,3 +5,38 @@ This is the Git repo of the Docker [official image](https://docs.docker.com/dock
 ## Release Process
 
 The release process is documented on our [Wiki Page](https://github.com/ExpressGateway/express-gateway/wiki/Express-Gateway-Release-Process)
+
+## Using this docker image
+
+Obtain a local copy of the image:
+```
+docker pull expressgateway/express-gateway:latest
+```
+
+### Basic usage
+
+Run a container from the image:
+```
+docker run -d -p 80:8080 epxressgateway/express-gateway:latest
+```
+This starts a container and bind ports 8080 and 9876 to your host.  You can now send requests to port 80.  HOwever, you have not configured any applications, routes, etc yet.  You jsut started the default gateway configured inside the docker image.
+
+### Persist configuration changes across container starts
+
+In the container, the gateway configurations files are stored in /var/lib/eg/ .  If you make changes to these they will be lost when the container is removed or restarted.  To keep you configuration changes across container restarts, you mudt save them outside of the container. 
+
+#### Using plain docker containers (e.g. not docker services)
+
+Start the container so that it mounts a volume to a host directory, where the configuration files will exist.  First, you should create a direcotry on your host where you want the configuration files to be stored.  NFor example:
+```
+mkdir -p /apps/eg
+```
+Next, copy the default configuration from the docker image to you host directory using something similar to
+```
+docker run -d --name default-eg expressgateway/express-gateway:latest
+docker cp deault-gw:var/log/eg /apps/eg
+```
+Now, you should have the default configuration files in the /apps/eg directory on your host.  After modifying these as you wish, start the docker container so that it uses these files for the gateway configuration:
+```
+docker run -d --name express-gateway -p 80:8080 -v /apps/eg:/var/lib/eg expressgateway/express-gateway:latest
+```
