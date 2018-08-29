@@ -6,12 +6,13 @@ const egVersion = process.env.CIRCLE_TAG.substr(1); // GitHub Tags is vx.y.z —
 
 async.parallel([
   (cb) => ejs.renderFile('./Dockerfile_template', { egVersion }, {}, cb),
-  (cb) => ejs.renderFile('./Helmfile_template', { egVersion, chartVersion: egVersion }, {}, cb)
-], (err, [Dockerfile, Helmfile]) => {
+  (cb) => ejs.renderFile('./Helmfile_template', { egVersion, chartVersion: egVersion }, {}, cb),
+  (cb) => ejs.renderFile('./Helmvaluefile_template', { egDockerVersion: process.env.CIRCLE_TAG }, {}, cb)
+], (err, [Dockerfile, Helmfile, Helmvaluefile]) => {
   if (err)
     return console.error(err);
 
   fs.writeFileSync('./alpine/Dockerfile', Dockerfile);
   fs.writeFileSync('./Helmfile', Helmfile);
+  fs.writeFileSync('./Helmvaluefile', Helmvaluefile);
 });
-
