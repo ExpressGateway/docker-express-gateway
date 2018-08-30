@@ -19,7 +19,7 @@ Run a container from the image:
 ```
 docker run -d -p 88:8080 express-gateway
 ```
-This starts a container and bind port 88 on your host to port 8080 in the container.  You can now send requests to port 88.  However, you have not configured any applications, routes, etc yet.  You just started the default gateway as configured inside the docker image.
+This starts a container and binds port 88 on your host to port 8080 in the container.  You can now send requests to port 88.  However, you have not configured any applications, routes, etc yet.  You just started the default gateway as configured inside the docker image.
 
 ### Keep configuration changes across container starts
 
