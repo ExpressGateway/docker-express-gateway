@@ -41,3 +41,8 @@ Now, you should have the default configuration files in the /apps/eg directory o
 ```
 docker run -d --name express-gateway -p 88:8080 -v /apps/eg:/var/lib/eg expressgateway/express-gateway
 ```
+
+If you and to use the CLI to change the gateway configuration, start the docker container so it binds an admin port on the host to the admin port the gateway is using in the container.  For example:
+````
+docker run -d --name express-gateway -p 88:8080 -p 9876:9876 -v /apps/eg:/var/lib/eg expressgateway/express-gateway
+````
