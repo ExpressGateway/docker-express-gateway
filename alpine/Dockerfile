@@ -2,7 +2,7 @@ FROM node:8-alpine
 
 LABEL maintainer Vincenzo Chianese, vincenzo@express-gateway.io
 
-ARG EG_VERSION=1.12.0
+ARG EG_VERSION=1.13.0
 
 VOLUME /var/lib/eg
 
