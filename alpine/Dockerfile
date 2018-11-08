@@ -1,9 +1,8 @@
-FROM node:8-alpine
+FROM node:10-alpine
 
 LABEL maintainer Vincenzo Chianese, vincenzo@express-gateway.io
 
 ARG EG_VERSION=1.13.0
-
 
 RUN yarn global add express-gateway@$EG_VERSION
 
@@ -19,4 +18,7 @@ VOLUME /var/lib/eg
 
 EXPOSE 8080 9876
 
-CMD ["node", "-e", "require('express-gateway')().run();"]
+
+COPY docker-entrypoint.sh /usr/local/bin/
+
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
