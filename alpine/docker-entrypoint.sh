@@ -62,5 +62,4 @@ if [ ! -e /var/lib/eg/system.config.yml ]; then
 			EOF
 fi
 
-
-exec node -e "require('express-gateway')().run();"
+exec "$@"
