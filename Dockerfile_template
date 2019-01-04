@@ -20,5 +20,5 @@ EXPOSE 8080 9876
 
 
 COPY docker-entrypoint.sh /usr/local/bin/
-
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["node", "-e", "require('express-gateway')().run();"]
