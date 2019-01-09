@@ -8,6 +8,10 @@ if [ ! -e /var/lib/eg/gateway.config.yml ]; then
          /var/lib/eg/gateway.config.yml
 fi
 
+if [ ! -e /var/lib/eg/models ]; then
+      mkdir /var/lib/eg/models
+fi
+
 if [ ! -e /var/lib/eg/system.config.yml ]; then
       echo >&2 "system.config.yml file not found in $PWD - copying now..."
 
