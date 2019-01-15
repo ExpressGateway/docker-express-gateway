@@ -19,21 +19,21 @@ if [ ! -e /var/lib/eg/system.config.yml ]; then
          /var/lib/eg/system.config.yml
 fi
 
-if [ ! -e /var/lib/eg/users.json ]; then
+if [ ! -e /var/lib/eg/models/users.json ]; then
       echo >&2 "users.json file not found in $PWD - copying now..."
 
       cp /usr/local/share/.config/yarn/global/node_modules/express-gateway/lib/config/models/users.json \
          /var/lib/eg/models/users.json
 fi
 
-if [ ! -e /var/lib/eg/applications.json ]; then
+if [ ! -e /var/lib/eg/models/applications.json ]; then
       echo >&2 "applications.json file not found in $PWD - copying now..."
 
       cp /usr/local/share/.config/yarn/global/node_modules/express-gateway/lib/config/models/applications.json \
          /var/lib/eg/models/applications.json
 fi
 
-if [ ! -e /var/lib/eg/credentials.json ]; then
+if [ ! -e /var/lib/eg/models/credentials.json ]; then
       echo >&2 "credentials.json file not found in $PWD - copying now..."
 
       cp /usr/local/share/.config/yarn/global/node_modules/express-gateway/lib/config/models/credentials.json \
