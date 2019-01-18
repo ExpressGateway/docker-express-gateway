@@ -20,6 +20,9 @@ if [ ! -e /var/lib/eg/system.config.yml ]; then
 
       cp /usr/local/share/.config/yarn/global/node_modules/express-gateway/bin/generators/gateway/templates/basic/config/system.config.yml \
          /var/lib/eg/system.config.yml
+
+      echo >&2 "system.config.yml updating to set redis server host..."
+      sed -i '/redis:/a \ \ \ \ host: redis' /var/lib/eg/system.config.yml
 fi
 
 if [ ! -e /var/lib/eg/models/users.json ]; then
