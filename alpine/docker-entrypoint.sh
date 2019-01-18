@@ -6,6 +6,9 @@ if [ ! -e /var/lib/eg/gateway.config.yml ]; then
 
       cp /usr/local/share/.config/yarn/global/node_modules/express-gateway/bin/generators/gateway/templates/basic/config/gateway.config.yml \
          /var/lib/eg/gateway.config.yml
+
+      echo >&2 "gateway.config.yml updating to expose admin port..."
+      sed -i 's/hostname: localhost/hostname: 0.0.0.0/' /var/lib/eg/gateway.config.yml
 fi
 
 if [ ! -e /var/lib/eg/models ]; then
