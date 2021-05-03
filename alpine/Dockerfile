@@ -1,8 +1,8 @@
-FROM node:10-alpine
+FROM node:12-alpine
 
 LABEL maintainer Vincenzo Chianese, vincenzo@express-gateway.io
 
-ARG EG_VERSION=1.16.10
+ARG EG_VERSION=1.16.11
 
 RUN yarn global add express-gateway@$EG_VERSION && yarn cache clean
 
