@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/ExpressGateway/docker-express-gateway#readme",
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^2.6.4",
     "ejs": "^2.6.1"
   }
 }
